@@ -1,0 +1,12 @@
+ASUL IA - versión para Netlify (funciona sin cuenta de Claude)
+
+1. Crea una cuenta en https://console.anthropic.com, añade saldo y crea una API key.
+   (Pon un límite de gasto mensual en Settings > Limits.)
+2. Sube esta carpeta a Netlify (Add new site > Deploy manually, o conéctala a GitHub).
+3. En Netlify: Site configuration > Environment variables > Add variable:
+      ANTHROPIC_API_KEY = tu key
+   Luego haz "Trigger deploy" para que la tome.
+4. Abre tu sitio. Listo.
+
+Nota: si arrastras la carpeta a "Deploy manually", las funciones solo se
+despliegan bien con el CLI (netlify deploy --prod) o conectando GitHub.
