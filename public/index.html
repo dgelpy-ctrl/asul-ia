@@ -156,7 +156,7 @@ async function send(){
   try{
     var res=await fetch("/.netlify/functions/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:hist})});
     var data=await res.json();
-    if(!res.ok)throw new Error(data.error||"Error");
+    if(!res.ok)throw new Error(data.error||data.errorMessage||data.message||("Código "+res.status+": "+JSON.stringify(data).slice(0,200)));
     t.innerHTML=md(data.text);
     c.msgs.push({role:"assistant",content:data.text});save();
   }catch(e){
