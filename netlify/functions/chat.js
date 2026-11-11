@@ -67,7 +67,7 @@ exports.handler = async (event) => {
     );
     const data = await r.json();
     if (r.status === 429) return json(429, { error: "La IA está muy ocupada ahora. Intenta en un minuto." });
-    if (!r.ok) return json(502, { error: "La IA no pudo responder ahora mismo." });
+    if (!r.ok) return json(502, { error: "La IA no pudo responder: " + ((data.error && data.error.message) || "código " + r.status) });
     const parts = (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) || [];
     const text = parts.map((p) => p.text || "").join("");
     return json(200, { text: text || "No tengo respuesta para eso. Prueba con otra pregunta." });
