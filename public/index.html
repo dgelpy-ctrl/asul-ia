@@ -88,7 +88,7 @@ aside.open{transform:none}
 </main>
 <script>
 (function(){
-var SYS="Eres Asul IA, el asistente de inteligencia artificial de Asul Academy, una academia de idiomas. Responde en el idioma del usuario (por defecto español), de forma clara, amable y útil. Ayuda con idiomas, tareas, redacción, programación y dudas generales. Usa formato Markdown sencillo.";
+var SYS="Eres el asistente de los panitas. Responde en el idioma del usuario (por defecto español), de forma clara, amable y útil. Ayuda con idiomas, tareas, redacción, programación y dudas generales. Usa formato Markdown sencillo.";
 var chats=[],cur=null,busy=false,store=null;
 try{store=window.localStorage}catch(e){}
 function load(){try{chats=JSON.parse(store.getItem("asulia")||"[]")}catch(e){chats=[]}}
@@ -131,7 +131,7 @@ function render(){
   $("title").textContent=c?c.title:"Asul IA";
   if(!c||!c.msgs.length){
     var h=document.createElement("div");h.className="hero";
-    h.innerHTML="<h2>¿En qué te ayudo hoy?</h2><p>Tu asistente de IA de Asul Academy</p>";
+    h.innerHTML="<h2>Soy el asistente de los panitas</h2><p>¿En qué te ayudo hoy?</p>";
     var ch=document.createElement("div");ch.className="chips";
     ["Explícame el present perfect","Corrige mi texto en inglés","Dame un plan para aprender francés","Ayúdame con una tarea"].forEach(function(q){
       var b=document.createElement("button");b.type="button";b.textContent=q;b.onclick=function(){$("inp").value=q;send()};ch.append(b)});
